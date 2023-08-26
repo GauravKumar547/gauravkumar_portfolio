@@ -144,7 +144,7 @@ const experiences = [
         company_name: "S7 works",
         icon: s7works,
         iconBg: "#000000",
-        date: "Jan 2022 - Jan 2023",
+        date: "Jul 2022 - Present",
         points: [
             "Developing and maintaining applications using React.js, Next.js, Flutter and other related technologies.",
             "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
