@@ -1,6 +1,6 @@
 import { OrbitControls, useGLTF, Preload } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import Loader from "../Loader";
 import { useMediaQuery } from "react-responsive";
 const Computers = () => {

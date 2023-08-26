@@ -1,10 +1,10 @@
-import React, { useRef, Suspense } from "react";
+import { useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { random } from "maath";
 const Stars = (props: any) => {
     const ref = useRef<any>(null);
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         if (ref.current !== null) {
             ref.current.rotation.x -= delta / 10;
             ref.current.rotation.y -= delta / 15;
