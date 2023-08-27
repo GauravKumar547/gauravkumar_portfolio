@@ -6,6 +6,7 @@ import { EarthCanvas } from ".";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import { useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 const Contact = () => {
     const formRef = useRef(null);
@@ -22,30 +23,34 @@ const Contact = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         setLoading(true);
-        emailjs
-            .send(
-                "service_fe3cl3s",
-                "template_95q7uve",
-                {
-                    from_name: form.name,
-                    to_name: "Gaurav Kumar",
-                    from_email: form.email,
-                    to_email: "gauravkhanna547@gmail.com",
-                    message: form.message,
-                },
-                "u7ydzci6rW3BGbjPZ"
-            )
-            .then(
-                () => {
-                    setLoading(false);
-                    alert("Thank you. I will get back to you as soon as possible");
-                },
-                (error) => {
-                    setLoading(false);
-                    console.log(error);
-                    alert("Something went wrong");
-                }
-            );
+        if (!form.email || !form.name || !form.message) {
+            toast.warn("Please enter all details");
+        } else {
+            emailjs
+                .send(
+                    "service_fe3cl3s",
+                    "template_95q7uve",
+                    {
+                        from_name: form.name,
+                        to_name: "Gaurav Kumar",
+                        from_email: form.email,
+                        to_email: "gauravkhanna547@gmail.com",
+                        message: form.message,
+                    },
+                    "u7ydzci6rW3BGbjPZ"
+                )
+                .then(
+                    () => {
+                        setLoading(false);
+                        alert("Thank you. I will get back to you as soon as possible");
+                    },
+                    (error) => {
+                        setLoading(false);
+                        console.log(error);
+                        alert("Something went wrong");
+                    }
+                );
+        }
     };
     return (
         <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
