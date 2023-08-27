@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../style";
-import { ComputersCanvas } from "./canvas";
+import { myimg } from "../assets";
+import PhotoSection from "./canvas/helper_components/PhotoSection";
 
 const Hero = () => {
     return (
@@ -22,7 +23,9 @@ const Hero = () => {
                     </p>
                 </div>
             </div>
-            <ComputersCanvas />
+            <div className="w-full max-w-7xl px-4 inset-0 absolute flex items-center justify-center mx-auto top-72">
+                <PhotoSection imgurl={myimg} />
+            </div>
             <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
                 <a
                     href="#about"

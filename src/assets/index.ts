@@ -30,7 +30,7 @@ import upworx from "./company/upworx.png";
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
-
+import myimg from "./myimg.png";
 export {
     logo,
     backend,
@@ -61,4 +61,6 @@ export {
     jobit,
     tripguide,
     redirect,
+    myimg,
 };
+
