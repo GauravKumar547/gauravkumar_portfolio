@@ -1,24 +1,23 @@
 import { technologies } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../style";
-import { textVariant } from "../utils/motion";
 import { motion } from "framer-motion";
 
 type Props = {
     icon: string;
-    directionLeft?: boolean;
+    directionTop?: boolean;
     proficiency: string;
 };
 
-const Skill = ({ icon, directionLeft, proficiency }: Props) => {
+const Skill = ({ icon, directionTop, proficiency }: Props) => {
     return (
         <motion.div
             initial={{
-                x: directionLeft ? -150 : 150,
+                y: directionTop ? -100 : 100,
                 opacity: 0,
             }}
             transition={{ duration: 0.8, delay: 0 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             className="relative flex sm:w-28 group shadow-card sm:h-28 h-20 w-20 rounded-full overflow-hidden cursor-pointer">
             <div className="p-2 flex justify-center items-center w-full h-full violet-gradient filter group-hover:invert transition duration-300 ease-in-out">
                 <img src={icon} className="object-cover" />
@@ -35,17 +34,17 @@ const Skill = ({ icon, directionLeft, proficiency }: Props) => {
 const Tech = () => {
     return (
         <>
-            <motion.div variants={textVariant(0.2)}>
+            <div>
                 <p className={`${styles.sectionSubText}`}>Tech I worked in</p>
                 <h2 className={`${styles.sectionHeadText}`}>Skills.</h2>
-            </motion.div>
+            </div>
             <div className="pt-8 flex flex-row flex-wrap justify-center gap-10">
                 {technologies.map((technology, index) => (
                     <div key={"technology" + technology.name} className="w-28 h-28">
                         <Skill
                             icon={technology.icon}
                             proficiency={technology.proficiency}
-                            directionLeft={index % 2 === 0}
+                            directionTop={index % 2 === 0}
                         />
                     </div>
                 ))}
