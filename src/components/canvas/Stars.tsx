@@ -2,6 +2,7 @@
 // import { Canvas, useFrame } from "@react-three/fiber";
 // import { Points, PointMaterial, Preload } from "@react-three/drei";
 // import { random } from "maath";
+import { motion } from "framer-motion";
 import { starsgif } from "../../assets";
 // const Stars = (props: any) => {
 //     const ref = useRef<any>(null);
@@ -28,7 +29,11 @@ import { starsgif } from "../../assets";
 // };
 const StarsCanvas = () => {
     return (
-        <div className="w-full h-auto absolute inset-0 overflow-hidden z-[-1]">
+        <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 5, delay: 0 }}
+            className="w-full h-auto absolute inset-0 overflow-hidden z-[-1]">
             {/* <Canvas gl={{ powerPreference: "high-performance" }} camera={{ position: [0, 0, 1] }}>
                 <Suspense fallback={null}>
                     <Stars />
@@ -36,7 +41,7 @@ const StarsCanvas = () => {
                 <Preload all />
             </Canvas> */}
             <img className="w-full h-full object-cover -scale-x-100" src={starsgif} alt="" />
-        </div>
+        </motion.div>
     );
 };
 
