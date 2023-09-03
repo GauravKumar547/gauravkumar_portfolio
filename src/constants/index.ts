@@ -18,9 +18,9 @@ import {
     python,
     chegg,
     upworx,
-    carrent,
-    jobit,
-    tripguide,
+    sudoku,
+    todolist,
+    veganstore,
     s7works,
 } from "../assets";
 export const navLinks = [
@@ -197,60 +197,16 @@ const testimonials = [
 
 const projects = [
     {
-        name: "Car Rent",
+        name: "Sudoku",
         description:
-            "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+            "Featuring a sleek design, I've integrated helpful features like hint systems and progress tracking, making it perfect for Sudoku enthusiasts of all levels.",
         tags: [
             {
                 name: "react",
                 color: "blue-text-gradient",
             },
             {
-                name: "mongodb",
-                color: "green-text-gradient",
-            },
-            {
-                name: "tailwind",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: carrent,
-        source_code_link: "https://github.com/",
-        live_link: "",
-    },
-    {
-        name: "Job IT",
-        description:
-            "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-        tags: [
-            {
-                name: "react",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "restapi",
-                color: "green-text-gradient",
-            },
-            {
-                name: "scss",
-                color: "pink-text-gradient",
-            },
-        ],
-        image: jobit,
-        source_code_link: "https://github.com/",
-        live_link: "",
-    },
-    {
-        name: "Trip Guide",
-        description:
-            "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
-        tags: [
-            {
-                name: "nextjs",
-                color: "blue-text-gradient",
-            },
-            {
-                name: "supabase",
+                name: "algorithm",
                 color: "green-text-gradient",
             },
             {
@@ -258,9 +214,53 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: tripguide,
-        source_code_link: "https://github.com/",
-        live_link: "",
+        image: sudoku,
+        source_code_link: "https://github.com/GauravKumar547/sudoku",
+        live_link: "https://sudoku-by-gaurav.web.app/",
+    },
+    {
+        name: "TODO list",
+        description:
+            "Web application that enables users to easily create, organize their tasks to boost your productivity with ease with a simple ui and user experience.",
+        tags: [
+            {
+                name: "react",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "redux",
+                color: "green-text-gradient",
+            },
+            {
+                name: "css",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: todolist,
+        source_code_link: "https://github.com/GauravKumar547/todo",
+        live_link: "https://todolist-by-gaurav.web.app/",
+    },
+    {
+        name: "Vegan Store Template",
+        description:
+            "Vegan store template for a sustainable, plant-based shopping experience. Find a wide range of cruelty-free products in one convenient place.",
+        tags: [
+            {
+                name: "html",
+                color: "blue-text-gradient",
+            },
+            {
+                name: "css",
+                color: "green-text-gradient",
+            },
+            {
+                name: "responsive",
+                color: "pink-text-gradient",
+            },
+        ],
+        image: veganstore,
+        source_code_link: "https://github.com/GauravKumar547/veganstore-template-by-gaurav",
+        live_link: "https://gauravkumar547.github.io/veganstore-template-by-gaurav/",
     },
 ];
 

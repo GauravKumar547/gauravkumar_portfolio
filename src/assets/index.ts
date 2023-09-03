@@ -27,9 +27,9 @@ import s7works from "./company/s7works.png";
 import chegg from "./company/chegg.png";
 import upworx from "./company/upworx.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
+import todolist from "./todolist.png";
+import sudoku from "./sudoku.png";
+import veganstore from "./veganstore.png";
 import myimg from "./myimg.png";
 import starsgif from "./stars.gif";
 export {
@@ -58,9 +58,9 @@ export {
     s7works,
     chegg,
     upworx,
-    carrent,
-    jobit,
-    tripguide,
+    veganstore,
+    sudoku,
+    todolist,
     redirect,
     myimg,
     starsgif,
