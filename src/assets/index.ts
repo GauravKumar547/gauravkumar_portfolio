@@ -9,8 +9,10 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import css from "./tech/css.png";
+import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
+import golang from "./tech/GoLang.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
@@ -26,10 +28,15 @@ import python from "./tech/python.png";
 import s7works from "./company/s7works.png";
 import chegg from "./company/chegg.png";
 import upworx from "./company/upworx.png";
+import nethues from "./company/nethues.svg";
+import hyprcom from "./company/hyprcom.png";
 
 import todolist from "./todolist.png";
 import sudoku from "./sudoku.png";
 import veganstore from "./veganstore.png";
+import ecommerce from "./ecommerce.png";
+import socialize from "./socialize.png";
+import musify from "./musify.png";
 import myimg from "./myimg.png";
 import starsgif from "./stars.gif";
 export {
@@ -42,8 +49,10 @@ export {
     menu,
     close,
     css,
+    docker,
     figma,
     git,
+    golang,
     html,
     javascript,
     flutter,
@@ -58,9 +67,14 @@ export {
     s7works,
     chegg,
     upworx,
+    nethues,
+    hyprcom,
     veganstore,
     sudoku,
     todolist,
+    ecommerce,
+    socialize,
+    musify,
     redirect,
     myimg,
     starsgif,

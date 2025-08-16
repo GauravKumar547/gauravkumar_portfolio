@@ -2,55 +2,103 @@ import { technologies } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { styles } from "../style";
 import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../utils/motion";
 
-type Props = {
+type SkillCardProps = {
+    name: string;
     icon: string;
-    directionTop?: boolean;
-    proficiency: string;
+    index: number;
 };
 
-const Skill = ({ icon, directionTop, proficiency }: Props) => {
+const SkillCard = ({ name, icon, index }: SkillCardProps) => {
     return (
         <motion.div
-            initial={{
-                y: directionTop ? -100 : 100,
-                opacity: 0,
-            }}
-            transition={{ duration: 0.8, delay: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="relative flex sm:w-28 group shadow-card sm:h-28 h-20 w-20 rounded-full overflow-hidden cursor-pointer">
-            <div className="p-2 flex justify-center items-center w-full h-full violet-gradient filter group-hover:invert transition duration-300 ease-in-out">
-                <img src={icon} className="object-cover" />
+            variants={fadeIn("up", "spring", index * 0.02, 0.3)}
+            className="bg-tertiary p-3 rounded-xl shadow-card hover:shadow-xl hover:scale-105 transition-all duration-200 group cursor-pointer flex flex-col items-center gap-2 min-w-[120px] h-[100px] justify-center border border-transparent hover:border-violet-500/20"
+        >
+            <div className="w-10 h-10 flex items-center justify-center">
+                <img 
+                    src={icon} 
+                    alt={name}
+                    className="w-8 h-8 object-contain group-hover:scale-110 transition-transform duration-200"
+                />
             </div>
-            <div className="absolute opacity-0 group-hover:opacity-80 transition duration-300 ease-in-out group-hover:bg-gray-200 sm:w-28 sm:h-28 h-20 w-20 rounded-full z-0">
-                <div className="flex items-center justify-center h-full">
-                    <p className="text-2xl font-bold text-[#612dd3] opacity-100">{proficiency}</p>
-                </div>
-            </div>
+            <h3 className="text-white text-xs font-medium text-center leading-tight group-hover:text-violet-300 transition-colors duration-200">{name}</h3>
         </motion.div>
     );
 };
 
 const Tech = () => {
+    // Group technologies by category
+    const groupedTechnologies = technologies.reduce((acc, tech) => {
+        const category = tech.category || "Other";
+        if (!acc[category]) {
+            acc[category] = [];
+        }
+        acc[category].push(tech);
+        return acc;
+    }, {} as Record<string, typeof technologies>);
+
     return (
         <>
-            <div>
-                <p className={`${styles.sectionSubText}`}>Tech I worked in</p>
-                <h2 className={`${styles.sectionHeadText}`}>Skills.</h2>
-            </div>
-            <div className="pt-8 flex flex-row flex-wrap justify-center gap-10">
-                {technologies.map((technology, index) => (
-                    <div key={"technology" + technology.name} className="w-28 h-28">
-                        <Skill
-                            icon={technology.icon}
-                            proficiency={technology.proficiency}
-                            directionTop={index % 2 === 0}
-                        />
-                    </div>
+            <motion.div variants={textVariant(0.1)}>
+                <p className={`${styles.sectionSubText}`}>My Technical Expertise</p>
+                <h2 className={`${styles.sectionHeadText}`}>Skills & Technologies.</h2>
+            </motion.div>
+
+            <div className="mt-6 space-y-4">
+                {Object.entries(groupedTechnologies).map(([category, techs], categoryIndex) => (
+                    <motion.div 
+                        key={category}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: categoryIndex * 0.05, duration: 0.4 }}
+                        className="space-y-2"
+                    >
+                        <h3 className="text-white text-lg font-bold text-center md:text-left bg-gradient-to-r from-violet-400 to-purple-600 bg-clip-text text-transparent">
+                            {category}
+                        </h3>
+                        <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                            {techs.map((technology, index) => (
+                                <SkillCard
+                                    key={technology.name}
+                                    index={index}
+                                    name={technology.name}
+                                    icon={technology.icon}
+                                />
+                            ))}
+                        </div>
+                    </motion.div>
                 ))}
             </div>
+
+            <motion.div 
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.4 }}
+                className="mt-8 p-4 bg-black-100 rounded-xl border border-violet-500/10"
+            >
+                <h3 className="text-white text-lg font-semibold mb-3 text-center md:text-left bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">Core Competencies</h3>
+                <div className="flex flex-wrap justify-center md:justify-start gap-2">
+                    {[
+                        "Microservices Architecture", "System Design", "Performance Optimization", 
+                        "CI/CD Pipelines", "Agile Development", "Test-Driven Development", 
+                        "RESTful APIs", "Event-Driven Architecture", "Cloud Native Development"
+                    ].map((skill, index) => (
+                        <motion.span
+                            key={skill}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: index * 0.03, duration: 0.3 }}
+                            className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm rounded-full hover:scale-105 transition-transform duration-200 cursor-default shadow-lg"
+                        >
+                            {skill}
+                        </motion.span>
+                    ))}
+                </div>
+            </motion.div>
         </>
     );
 };
 
-export default SectionWrapper(Tech, "");
+export default SectionWrapper(Tech, "tech");
