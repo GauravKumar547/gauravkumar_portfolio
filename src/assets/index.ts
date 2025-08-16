@@ -26,8 +26,6 @@ import nextjs from "./tech/Nextjs.png";
 import python from "./tech/python.png";
 
 import s7works from "./company/s7works.png";
-import chegg from "./company/chegg.png";
-import upworx from "./company/upworx.png";
 import nethues from "./company/nethues.svg";
 import hyprcom from "./company/hyprcom.png";
 
@@ -65,8 +63,6 @@ export {
     tailwind,
     typescript,
     s7works,
-    chegg,
-    upworx,
     nethues,
     hyprcom,
     veganstore,

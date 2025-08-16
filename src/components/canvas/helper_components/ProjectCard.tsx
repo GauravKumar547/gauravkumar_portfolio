@@ -1,5 +1,4 @@
 import { github, redirect } from "../../../assets";
-import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { fadeIn } from "../../../utils/motion";
 
@@ -26,8 +25,7 @@ const ProjectCard = ({
         variants={fadeIn("up", "spring", index * 0.1, 0.4)}
         className="group"
     >
-        <Tilt
-            options={{ max: 45, scale: 1, speed: 450 }}
+        <div
             className="bg-tertiary p-5 rounded-2xl md:w-[360px] w-full min-h-[580px] shadow-card hover:shadow-2xl transition-all duration-200 relative overflow-hidden flex flex-col"
         >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-violet-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
@@ -94,7 +92,7 @@ const ProjectCard = ({
                     ))}
                 </div>
             </div>
-        </Tilt>
+        </div>
     </motion.div>
 );
 
